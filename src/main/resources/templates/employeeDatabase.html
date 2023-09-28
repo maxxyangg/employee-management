@@ -1,0 +1,38 @@
+<html>
+  <head>
+    <title>Employee Database</title>
+    <link th:href="@{/employee-stylesheet.css}" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="topnav">
+      <a th:href="@{/employee/form}">Form</a>
+      <a class="active" th:href="@{/employee/database}">Inventory</a>
+    </div>
+
+    <div>
+      <table>
+        <tr>
+          <th>Employee ID</th>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>DOB</th>
+          <th>Start Date</th>
+        </tr>
+
+        <tr th:each="employee: ${employees}">
+          <td th:text="${employee.employeeId}"></td>
+          <td th:text="${employee.firstName}"></td>
+          <td th:text="${employee.lastName}"></td>
+          <td
+            type="date"
+            th:text="${#dates.format(employee.dateOfBirth, 'yyyy-MM-dd')}"
+          ></td>
+          <td
+            type="date"
+            th:text="${#dates.format(employee.startDate, 'yyyy-MM-dd')}"
+          ></td>
+        </tr>
+      </table>
+    </div>
+  </body>
+</html>

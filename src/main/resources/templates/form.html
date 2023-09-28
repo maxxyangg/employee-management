@@ -1,0 +1,40 @@
+<html>
+  <head>
+    <title>Employee Management</title>
+    <link th:href="@{/form-stylesheet.css}" rel="stylesheet" />
+  </head>
+
+  <body>
+    <div class="topnav">
+      <a class="active" th:href="@{/employee/form}">Form</a>
+      <a th:href="@{/employee/database}">Database</a>
+    </div>
+
+    <div>
+      <h2>Employee Management</h2>
+
+      <form
+        method="post"
+        th:object="${employee}"
+        th:action="@{/employee/register}"
+      >
+        <p style="color: red" th:errors="*{firstName}"></p>
+        <input type="text" placeholder="First Name" th:field="*{firstName}" />
+
+        <p style="color: red" th:errors="*{lastName}"></p>
+        <input type="text" placeholder="Last Name" th:field="*{lastName}" />
+
+        <p style="color: black; text-align: center">Date Of Birth</p>
+        <p style="color: red; text-align: center" th:errors="*{dateOfBirth}" />
+        <input type="date" style="color: black" th:field="*{dateOfBirth}" />
+
+        <p style="color: black; text-align: center">Start Date</p>
+        <p style="color: red" th:errors="*{startDate}"></p>
+        <input type="date" style="color: black" th:field="*{startDate}" />
+
+        <input type="hidden" th:field="*{employeeId}" />
+        <input type="submit" value="Register" />
+      </form>
+    </div>
+  </body>
+</html>
