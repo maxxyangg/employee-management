@@ -1,3 +1,6 @@
+html{
+  background-color: orange;
+}
 body {
   font-family: Arial, Helvetica, sans-serif; 
 }   
@@ -66,7 +69,7 @@ table tbody td[type=currency]:before {
     border: solid 1px gray;
     font: #EDF7FF;
     width: 80%;
-    background-color: green;
+    background-color: white;
     font-size: 16px;
     text-decoration: none;
     padding-top: .5em;
@@ -80,7 +83,7 @@ table tbody td[type=currency]:before {
 
 
   
-  .table-button:hover {
+  .table-button :hover {
     background-color: gray;
   }
   

@@ -18,9 +18,14 @@ public class EmployeeServiceImplementation implements EmployeeService {
 
     @Override
     public Employee getEmployee(Long employeeId) {
-        Optional<Employee> wrappedOptional = employeeRepositry.findById(employeeId);
-        Employee unwrappedEmployee = unwrapEmployee(wrappedOptional, employeeId);
-        return unwrappedEmployee;
+        if (employeeId == null) {
+            return new Employee();
+        } else {
+            Optional<Employee> wrappedOptional = employeeRepositry.findById(employeeId);
+            Employee unwrappedEmployee = unwrapEmployee(wrappedOptional, employeeId);
+            return unwrappedEmployee;
+        }
+
     }
 
     @Override
