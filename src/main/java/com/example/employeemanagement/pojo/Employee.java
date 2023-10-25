@@ -37,12 +37,14 @@ public class Employee {
     private String lastName;
 
     @Past(message = "Must be a past date")
+    @NotNull
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     @NonNull
     @Column(name = "age", nullable = false)
     private Date dateOfBirth;
 
     @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @NotNull
     @NonNull
     @Column(name = "start_date", nullable = false)
     private Date startDate;

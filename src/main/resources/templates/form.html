@@ -11,17 +11,17 @@
     </div>
 
     <div>
-      <h2>Employee Management</h2>
+      <h2>Register Employee</h2>
 
       <form
         method="post"
         th:object="${employee}"
         th:action="@{/employee/register}"
       >
-        <p style="color: red" th:errors="*{firstName}"></p>
+        <p style="color: red; text-align: center" th:errors="*{firstName}"></p>
         <input type="text" placeholder="First Name" th:field="*{firstName}" />
 
-        <p style="color: red" th:errors="*{lastName}"></p>
+        <p style="color: red; text-align: center" th:errors="*{lastName}"></p>
         <input type="text" placeholder="Last Name" th:field="*{lastName}" />
 
         <p style="color: black; text-align: center">Date Of Birth</p>
@@ -29,11 +29,11 @@
         <input type="date" style="color: black" th:field="*{dateOfBirth}" />
 
         <p style="color: black; text-align: center">Start Date</p>
-        <p style="color: red" th:errors="*{startDate}"></p>
+        <p style="color: red; text-align: center" th:errors="*{startDate}"></p>
         <input type="date" style="color: black" th:field="*{startDate}" />
 
         <input type="hidden" th:field="*{employeeId}" />
-        <input type="submit" value="Register" />
+        <input type="submit" value="Submit" />
       </form>
     </div>
   </body>

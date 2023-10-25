@@ -7,6 +7,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.example.employeemanagement.pojo.Employee;
@@ -22,8 +23,8 @@ public class EmployeeController {
     private EmployeeService employeeService;
 
     @GetMapping("/form")
-    public String getForm(Model model) {
-        model.addAttribute("employee", new Employee());
+    public String getForm(Model model, @RequestParam(required = false) Long employeeId) {
+        model.addAttribute("employee", employeeService.getEmployee(employeeId));
         return "form";
     }
 
